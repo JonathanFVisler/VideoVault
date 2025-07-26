@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.form-row label {
+  min-width: 120px;
+  font-weight: bold;
+  color: white;
+}
+
+.form-row input[type="text"],
+.form-row input[type="file"] {
+  flex: 1;
+  padding: 6px 10px;
+  background-color: #2a2b38;
+  color: white;
+  border: 1px solid #888;
+  border-radius: 4px;
+}
+
+.form-row.center {
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,41 @@
+.area {
+  background-color: #505050;
+  overflow: hidden;
+  color: white;
+}
+
+.area a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.area a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.area a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.area button {
+  float: left;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.area button:hover {
+  background-color: #45a049;
+}
+
+.area button:focus {
+  outline: none;
+}
