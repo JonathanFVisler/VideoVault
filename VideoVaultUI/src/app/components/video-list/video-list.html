@@ -1,0 +1,7 @@
+<section class="video-suggestion-container">
+  @for (video of videos; track video.id) {
+    <div>
+    <app-video-sugestion [video]="video" (videoSelect)="videoSelect.emit(video.id)"></app-video-sugestion>
+    </div>
+  }
+</section>

@@ -1,0 +1,15 @@
+.video-suggestion-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: #2a2b38;
+  padding: 10px;
+}
+
+.video-suggestion-container > div {
+  background: #2a2b38;
+  /* border: 1px solid black; */
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}

@@ -1,99 +1,30 @@
-
-<div class="topnav">
-  <button type="button" (click)="toggleAddVideoForm()">Add Video</button>
-  <div class="search-container">
-    <input #searchInput type="text" placeholder="Search videos..." (keydown.enter)="searchVideos()" />
-    <button type="button" (click)="searchVideos()">Search</button>
-  </div>
-</div> 
+<app-navigation-bar
+  (toggleAddVideoForm)="toggleAddVideoForm()"
+  (searchVideos)="searchVideos($event)">
+</app-navigation-bar>
 
 <!-- Add new video -->
-<div
-  class="area"
-  #panel
-  [style.max-height.px]="addVideoFormVisible ? panel.scrollHeight : 0"
-  [style.transitionDuration.s]="(panel.scrollHeight / 100) * 0.3"
->
-  <form>
-    <div class="form-row">
-      <label>Video File:</label>
-      <input type="file" accept="video/*" (change)="onNewVideoSelected($event)"/>  
-    </div>
-    
-    <div class="form-row">
-      <label>Display Name:</label>
-      <input #newDisplayNameInput name="newDisplayNameInput" type="text" />
-    </div>
-
-    <div class="form-row">
-      <label>Creator:</label>
-      <input #newCreatorInput name="newCreatorInput" type="text" />  
-    </div>
-
-    <div class="form-row center">
-      <button type="submit" (click)="submitVideo($event)" [disabled]="!selectedFile">Submit</button>
-    </div>
-  </form>
-</div>
+<app-add-video-section
+  #addVideoPanel
+  [addVideoFormVisible]="addVideoFormVisible">
+</app-add-video-section>
 
 <!-- Videoplayer -->
-<div
-  style="overflow: hidden;"
+<app-video-player-section
   #videoPlayerPanel
-  [style.max-height.px]="showVideoPanel ? videoPlayerPanelMaxHeight : 0"
->
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%">
-    <div class="area">
-      <button type="button" (click)="closeVideo()">Close Video</button>
-    </div>
-    <div style="margin-left: 20px">
-      <label>{{selectedVideo?.fileName}}</label>
-    </div>
-  </div>
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%">
-    <video
-      style="max-width: 1200px; max-height: 700px; width: 100%; height: auto;"
-      controls [src]="'http://localhost:5000' + selectedVideo?.filePath"
-      (ended)="onVideoEnded()"
-      (loadedmetadata) ="updateVideoPlayerPanelHeight()"
-      autoplay></video>
-  </div>
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%">
-    <div class="container-small">
-      <div style="margin-right: 2px">
-        <label>Autoplay</label>
-      </div>
-      <div class="content">
-        <label class="checkBox">
-          <input id="ch1" type="checkbox" (click)="toggleAutoplay()" />
-          <div class="transition"></div>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
+  [video]="selectedVideo"
+  (autoplayNewVideo)="playRandomVideo()">
+</app-video-player-section>
 
 <!-- Video List -->
-<div>
+ <div>
   <div style="width: 100%; display: table;">
     <div class="area" style="display: table-row">
       <button type="button" class="button" (click)="getRandomVideos()">Refresh Videos</button>
       <button type="button" class="button" (click)="playRandomVideo()">Play Random Videos</button>
     </div>
   </div>
-  
-  <div class="video-suggestion-container">
-    @for (video of videoList(); track video.id) {
-      <div>
-        <button type="button" class="video-suggestion-button" (click)="openVideo(video.id)">
-          <img [src]="'http://localhost:5000' + video.thumbnailPath" width="320" height="auto">
-          <div style="text-wrap: wrap;">{{video.fileName}}</div>
-          <div>{{video.creator}}</div>
-          <!-- <div>{{video.filePath}}</div>
-          <div>{{video.thumbnailPath}}</div> -->
-        </button>
-      </div>
-    }
-  </div>
-</div>
+  <app-video-list [videos]="videos" (videoSelect)="openVideo($event)"></app-video-list>
+ </div>
+
 <router-outlet />

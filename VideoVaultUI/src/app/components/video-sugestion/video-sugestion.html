@@ -1,0 +1,7 @@
+<article>
+    <button type="button" class="video-suggestion-button" (click)="videoSelect.emit(video.id)">
+        <img [src]="video?.thumbnailPath" width="320" height="auto">
+        <div style="text-wrap: wrap;">{{video.fileName}}</div>
+        <div>{{video.creator}}</div>
+    </button>
+</article>

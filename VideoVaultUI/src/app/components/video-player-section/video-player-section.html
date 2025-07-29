@@ -1,0 +1,38 @@
+<section
+  style="overflow: hidden;"
+  #videoPlayerPanel
+  [style.max-height.px]="showVideoPanel ? videoPlayerPanelMaxHeight : 0"
+>
+  <header style="display: flex; justify-content: center; align-items: center; width: 100%">
+    <div class="area">
+      <button type="button" (click)="closeVideo()">Close Video</button>
+    </div>
+    <div style="margin-left: 20px">
+      <label>{{video?.fileName}}</label>
+    </div>
+  </header>
+
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%">
+    <video
+      style="max-width: 1200px; max-height: 700px; width: 100%; height: auto;"
+      controls [src]="video?.filePath"
+      (ended)="onVideoEnded()"
+      (play)="onVideoStarted()"
+      (loadedmetadata) ="updateVideoPlayerPanelHeight()"
+      autoplay></video>
+  </div>
+
+  <footer style="display: flex; justify-content: center; align-items: center; width: 100%">
+    <div class="container-small">
+      <div style="margin-right: 2px">
+        <label>Autoplay</label>
+      </div>
+      <div class="content">
+        <label class="checkBox">
+          <input id="ch1" type="checkbox" (click)="toggleAutoplay()" />
+          <div class="transition"></div>
+        </label>
+      </div>
+    </div>
+  </footer>
+</section>

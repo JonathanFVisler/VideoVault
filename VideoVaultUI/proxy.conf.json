@@ -3,5 +3,15 @@
         "target": "http://localhost:5000",
         "secure": false,
         "changeOrigin": true
-    }    
+    },
+    "/Videos": {
+        "target": "http://localhost:5000",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/thumbnails": {
+        "target": "http://localhost:5000",
+        "secure": false,
+        "changeOrigin": true
+    }
 }

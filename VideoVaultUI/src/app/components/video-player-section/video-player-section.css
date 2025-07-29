@@ -1,0 +1,19 @@
+@import '../../styles/checkbox.css';
+@import '../../styles/area.css';
+
+.container-small {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2a2b38;
+  align-items: center;
+  padding: 5px;
+}
+
+.container-small > div {
+  background: #2a2b38;
+  /* border: 1px solid black; */
+  padding: 2px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}

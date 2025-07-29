@@ -1,57 +1,12 @@
 @import './styles/checkbox.css';
 @import './styles/card.css';
 @import './styles/button.css';
-@import './styles/topnav.css';
 @import './styles/area.css';
 @import './styles/form.css';
 @import './styles/search-container.css';
-@import './styles/video-suggestion-container.css';
-
-#doc3, html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  background-color: #1c1c1c;
-  color: white;
-}
-
-body, app-root {
-  display: block;
-  width: 100%;
-  min-width: 100vh;
-  height: 100%;
-  background-color: #1c1c1c;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  /* background-color: #1c1c1c;
-  color: white; */
-}
 
 .slide-panel {
     overflow: hidden;
     transition-property: max-height;
 }
 
-.container-small {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2a2b38;
-  align-items: center;
-  padding: 5px;
-}
-
-.container-small > div {
-  background: #2a2b38;
-  /* border: 1px solid black; */
-  padding: 2px;
-  font-size: 20px;
-  color: white;
-  text-align: center;
-}

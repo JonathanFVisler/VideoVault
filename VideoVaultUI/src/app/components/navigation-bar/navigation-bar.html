@@ -1,0 +1,7 @@
+<nav class="topnav">
+  <button type="button" (click)="toggleAddVideoForm.emit()">Add Video</button>
+  <div class="search-container">
+    <input #searchInput type="text" placeholder="Search videos..." (keydown.enter)="searchVideos.emit(searchInput.value)" />
+    <button type="button" (click)="searchVideos.emit(searchInput.value)">Search</button>
+  </div>
+</nav> 

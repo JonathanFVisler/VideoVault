@@ -1,0 +1,27 @@
+<div
+  class="area"
+  #panel
+  [style.max-height.px]="addVideoFormVisible ? panel.scrollHeight : 0"
+  [style.transitionDuration.s]="(panel.scrollHeight / 100) * 0.3"
+>
+  <form>
+    <div class="form-row">
+      <label>Video File:</label>
+      <input type="file" accept="video/*" (change)="onNewVideoSelected($event)"/>  
+    </div>
+    
+    <div class="form-row">
+      <label>Display Name:</label>
+      <input #displayNameInput name="displayNameInput" type="text" />
+    </div>
+
+    <div class="form-row">
+      <label>Creator:</label>
+      <input #creatorInput name="creatorInput" type="text" />  
+    </div>
+
+    <div class="form-row center">
+      <button type="submit" (click)="submitVideo($event)" [disabled]="!selectedFile">Submit</button>
+    </div>
+  </form>
+</div>
